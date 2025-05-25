@@ -30,7 +30,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "OLA" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "OLA" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("OLA")}
           >
@@ -39,7 +39,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "A GENTE" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "A GENTE" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("A GENTE")}
           >
@@ -48,7 +48,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "PROJETOS" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "PROJETOS" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("PROJETOS")}
           >
@@ -57,7 +57,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "SOLUCOES" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "SOLUCOES" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("SOLUCOES")}
           >
@@ -66,7 +66,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "BORA CONVERSAR" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "BORA CONVERSAR" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("BORA CONVERSAR")}
           >
@@ -75,7 +75,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "BLOG" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "BLOG" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("BLOG")}
           >
@@ -84,7 +84,7 @@ export default function Header() {
           <a
             href="#"
             className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-              activeLink === "TRABALHE COM A GENTE" ? "bg-purple-purpleOpacity" : ""
+              activeLink === "TRABALHE COM A GENTE" ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
             }`}
             onClick={() => handleLinkClick("TRABALHE COM A GENTE")}
           >
