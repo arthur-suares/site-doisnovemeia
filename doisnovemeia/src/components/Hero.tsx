@@ -7,7 +7,7 @@ export default function Hero() {
 
     return (
         <section className="bg-gradient-linear-purple w-full py-16 px-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Lado Esquerdo - Gráfico */}
         <div className="mb-8 md:mb-0">
           <div className="flex items-center justify-center">
@@ -16,14 +16,14 @@ export default function Hero() {
               alt="Logo Dois Nove Meia"
             />
           </div>
-          <div className="absolute flex top-[190px] left-[300px]">
+          <div className="absolute flex top-[40px] left-[120px] lg:top-[170px] lg:left-[50px]">
             <Image
               src={raioLaranja}
               alt="Logo Dois Nove Meia"
               className="animate-flash-bug"
             />
           </div>
-          <div className="absolute flex top-[430px] left-[650px]"> 
+          <div className="absolute flex top-[300px] right-[150px] lg:top-[430px] lg:left-[400px]"> 
             <Image
               src={raioVerde}
               alt="Logo Dois Nove Meia"
@@ -46,8 +46,10 @@ export default function Hero() {
           <p className="mb-6 text-md font-lemonMilkLight">
             Quer saber mais sobre o que fazemos?
           </p>
-          <button className="bg-white/40 text-white font-bold py-4 px-8 rounded-full hover:bg-purple-brandPurle transition font-lemonMilkBold text-md">
-            Veja aqui nossas soluções
+          <button className="bg-white/40 text-white py-4 px-8 rounded-full hover:bg-purple-brandPurle transition">
+            <strong className="font-lemonMilkBold">
+              Veja aqui nossas soluções
+            </strong>
           </button>
         </div>
       </div>
