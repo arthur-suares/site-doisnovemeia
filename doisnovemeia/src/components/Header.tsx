@@ -2,8 +2,13 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { FaBehance, FaInstagram, FaLinkedinIn, FaFacebook, FaBars, FaTimes } from "react-icons/fa";
+import { FaBehance, FaInstagram, FaLinkedinIn, FaFacebook, FaBars, FaTimes, FaUsers } from "react-icons/fa";
 import iconDois from "../../public/img/logo-doisnovemeia.svg";
+import { RiChatSmile3Line } from "react-icons/ri";
+import { GrProjects } from "react-icons/gr";
+import { FaPuzzlePiece, FaBlog } from "react-icons/fa6";
+import { BsChatText } from "react-icons/bs";
+import { IoCodeWorkingOutline } from "react-icons/io5";
 
 
 export default function Header() {
@@ -14,6 +19,16 @@ export default function Header() {
     setActiveLink(linkName);
     setIsMenuOpen(false);
   };
+
+  const navItems = [
+  { label: "OLÁ", icon: <RiChatSmile3Line size={18} /> },
+  { label: "A GENTE", icon: <FaUsers size={18} /> },
+  { label: "PROJETOS", icon: <GrProjects size={18} /> },
+  { label: "SOLUÇÕES", icon: <FaPuzzlePiece size={18} /> },
+  { label: "BORA CONVERSAR", icon: <BsChatText size={18} /> },
+  { label: "BLOG", icon: <FaBlog size={18} /> },
+  { label: "TRABALHE COM A GENTE", icon: <IoCodeWorkingOutline size={22} /> },
+];
 
   return (
     <>
@@ -46,6 +61,7 @@ export default function Header() {
       </div>
 
       {/* Header desktop */}
+      {/* Header desktop */}
       <header className="hidden lg:flex items-center justify-between px-6 py-6">
         <div className="flex items-center gap-3">
           <Image
@@ -56,16 +72,16 @@ export default function Header() {
         </div>
 
         <nav className="flex gap-5 font-lemonMilkLight rounded-full">
-          {["OLÁ", "A GENTE", "PROJETOS", "SOLUÇÕES", "BORA CONVERSAR", "BLOG", "TRABALHE COM A GENTE"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
+              key={item.label}
               href="#"
               className={`hover:bg-purple-purpleOpacity transition-colors rounded-full px-2 py-2 duration-200 ${
-                activeLink === item ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
+                activeLink === item.label ? "bg-purple-purpleOpacity font-lemonMilkBold" : ""
               }`}
-              onClick={() => handleLinkClick(item)}
+              onClick={() => handleLinkClick(item.label)}
             >
-              {item}
+              {item.label} {/* ✅ Só o texto no desktop */}
             </a>
           ))}
         </nav>
@@ -98,6 +114,7 @@ export default function Header() {
         </div>
       </header>
 
+
       {/* Botão hamburguer - fixo e flutuante no mobile */}
       <button
         className="lg:hidden fixed top-3 left-4 z-50 text-3xl text-purple-brandPurle bg-white shadow-md rounded-md p-2"
@@ -113,18 +130,20 @@ export default function Header() {
         } pt-20`} // pt-20 para descolar das redes sociais no topo
       >
         <div className="flex flex-col items-start gap-6 px-6">
-          {["OLÁ", "A GENTE", "PROJETOS", "SOLUÇÕES", "BORA CONVERSAR", "BLOG", "TRABALHE COM A GENTE"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
+              key={item.label}
               href="#"
-              className={`text-lg ${
-                activeLink === item ? "text-purple-brandPurle font-lemonMilkBold" : "text-black"
+              className={`flex items-center gap-2 text-lg ${
+                activeLink === item.label ? "text-purple-brandPurle font-lemonMilkBold" : "text-black"
               }`}
-              onClick={() => handleLinkClick(item)}
+              onClick={() => handleLinkClick(item.label)}
             >
-              {item}
+              {item.icon}
+              {item.label}
             </a>
           ))}
+
         </div>
       </div>
     </>
