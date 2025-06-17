@@ -1,18 +1,16 @@
 'use client'
 
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Hero2 from "@/components/Hero2";
-
-import React, { useState } from "react";
+import Hero3 from "@/components/Hero3";
 
 export default function Home() {
 
     return (
-    <main className="h-screen flex flex-col max-w-full">
-      <Header />
+    <main className="flex flex-col max-w-full">
       <Hero />
       <Hero2 />
+      <Hero3 />
     </main>
     );
 }

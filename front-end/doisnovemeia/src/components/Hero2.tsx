@@ -12,7 +12,7 @@ export default function Hero2() {
         <section className="bg-gradient-linear-green w-full py-16 px-8">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between">
           <div className="">
-          <div className="text-xl font-lemonMilkLight text max-w-2xl text-[#4F4F4F]">
+          <div className="text-xl font-lemonMilkLight text max-w-2xl text-[#4F4F4F] leading-relaxed">
             Somos mais que uma agência, preferimos nos chamar de laboratório de criatividade. A Doisnovemeia não se contenta em copiar o modelo tradicional de agência de publicidade. Atentos às tendências do mercado, mas não presos a elas, criamos um ambiente ideal para inovar nos serviços, nas apresentações de ideias e na experiência do cliente. É isso que faz de nós um laboratório.
           </div>
           <button className="mt-10 bg-white/70 text-white font-bold px-2 py-3 lg:py-4 lg:px-8 rounded-full transition-transform duration-200"
@@ -30,18 +30,13 @@ export default function Hero2() {
             <Image
               src={boxOrange}
               width={400}
+              height={400}
               alt="Logo Dois Nove Meia"
             />
           </div>
           <div className="flex top-[900px] left-[300px]"> 
             <Image
               src={gotas}
-              alt="Logo Dois Nove Meia"
-            />
-          </div>
-          <div className=" absolute flex top-[800px] right-[5px] lg:top-[570px] lg:right-[130px]"> 
-            <Image
-              src={raioAzul}
               alt="Logo Dois Nove Meia"
             />
           </div>

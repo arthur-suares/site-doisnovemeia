@@ -37,6 +37,7 @@ export default {
       animation: {
         pulseScale: 'pulseScale 3s infinite ease-in-out',
         'flash-bug': 'flash-bug 2s ease-in-out 1s',
+        'float-slow': 'float 3s ease-in-out infinite',
       },
       keyframes: {
         pulseScale: {
@@ -56,6 +57,10 @@ export default {
           '70%': { opacity: '0' },
           '80%': { opacity: '1' },
           '100%': { opacity: '1' }, // Fica normal após as piscadas
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },

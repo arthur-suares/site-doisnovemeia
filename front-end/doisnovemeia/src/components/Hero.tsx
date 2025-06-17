@@ -12,22 +12,10 @@ export default function Hero() {
         <div className="mb-8 md:mb-0">
           <div className="flex items-center justify-center">
             <Image
+            width={350}
+            height={350}
               src={icondoisWhite}
               alt="Logo Dois Nove Meia"
-            />
-          </div>
-          <div className="absolute flex top-[40px] left-[120px] lg:top-[170px] lg:left-[50px]">
-            <Image
-              src={raioLaranja}
-              alt="Logo Dois Nove Meia"
-              className="animate-flash-bug"
-            />
-          </div>
-          <div className="absolute flex top-[300px] right-[150px] lg:top-[430px] lg:left-[400px]"> 
-            <Image
-              src={raioVerde}
-              alt="Logo Dois Nove Meia"
-              className="animate-flash-bug"
             />
           </div>
         </div>
@@ -38,7 +26,7 @@ export default function Hero() {
             Prazer, doisnovemeia.
           </h1>
           <h1 className="text-md font-lemonMilkLight mb-6">Pode nos chamar de dois.</h1>
-          <p className="mb-4 text-md font-lemonMilkLight">
+          <p className="mb-4 text-md font-lemonMilkLight leading-relaxed">
             Somos a empresa júnior de Publicidade da Universidade de Brasília,
             fundada em 1996 que desde então une jovens visionários e ousados
             que não têm medo de experimentar, porque só é criativo quem se arrisca.
@@ -46,7 +34,7 @@ export default function Hero() {
           <p className="mb-6 text-md font-lemonMilkLight">
             Quer saber mais sobre o que fazemos?
           </p>
-          <button className="bg-white/40 text-white py-4 px-8 rounded-full hover:bg-purple-brandPurle transition">
+          <button className="bg-white/40 text-white py-4 px-8 rounded-full hover:bg-purple-brandPurle transition duration-300 ease-in-out">
             <strong className="font-lemonMilkBold">
               Veja aqui nossas soluções
             </strong>
