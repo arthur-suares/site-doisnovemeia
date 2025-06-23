@@ -19,3 +19,13 @@
     src: url('/fonts/LEMONMILK-Bold.otf') format('opentype')
   }
 }
+
+/* globals.css */
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    scrollbar-width: none;  /* For Firefox */
+}

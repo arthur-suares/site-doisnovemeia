@@ -24,22 +24,22 @@ export default function Hero3() {
             </div>
             <div className="mx-auto max-w-6xl relative z-10 flex flex-col items-center">
                 {/* Top Text */}
-                <div className="text-zinc-950 text-center max-w-4xl mb-12 font-lemonMilkLight text-lg lg:text-xl leading-relaxed">
-                    <p className="mb-4">
+                <div className="text-zinc-950 max-w-5xl mb-12 font-lemonMilkLight text-md lg:text-lg leading-relaxed">
+                    <p className="mb-6">
                         Você deve estar pensando: “Por que contratar o serviço de um bando de jovens que ainda estão na faculdade?” Oras, o motivo é simples: não somos como as outras agências de publicidade, somos um laboratório de ideias e nos orgulhamos disso.
                     </p>
-                    <p className="mb-4">
+                    <p className="mb-6">
                         Em que outro lugar poderíamos experimentar sem medo de errar a não ser dentro da porta verde? Estamos sempre buscando inovar para garantir soluções criativas destinadas ao mercado publicitário, e nossa especialidade é sair do convencional. Também quer ser diferente? Passa no ninho!
                     </p>
-                    <p className="font-lemonMilkBold">
+                    <p>
                         Ainda não te convencemos? Então, dê uma olhada nos nossos diferenciais competitivos para mudar de ideia.
                     </p>
                 </div>
 
                 {/* Main Content Area: Diferenciais e Planta */}
-                <div className="flex flex-col lg:flex-row items-center justify-between w-full">
+                <div className="flex flex-col lg:flex-row items-start justify-between w-[90%] mt-2">
                     {/* Diferenciais na Esquerda (e flutuam em mobile) */}
-                    <div className="flex flex-col items-start space-y-4 lg:w-1/2 lg:pr-8">
+                    <div className="flex flex-col items-start space-y-4 lg:w-1/2 lg:pr-8 gap-40">
                         <DiferencialBox
                             title="VETERANOS"
                             content="Com mais de 25 anos de história, acumulamos experiência e um portfólio sólido."
@@ -55,14 +55,14 @@ export default function Hero3() {
                         <Image
                             src={plantPageOla}
                             alt="Planta estilizada com fundo quadriculado, representando criatividade"
-                            width={450} // Ajuste o tamanho da imagem da planta
-                            height={450}
+                            width={1000} // Ajuste o tamanho da imagem da planta
+                            height={1000}
                             className="w-full max-w-sm lg:max-w-md h-auto"
                         />
                     </div>
 
                     {/* Diferenciais na Direita (e flutuam em mobile) */}
-                    <div className="flex flex-col items-end space-y-4 lg:w-1/2 lg:pl-8">
+                    <div className="flex flex-col items-end space-y-4 lg:w-1/2 lg:pl-8 gap-40 mt-20">
                         <DiferencialBox
                             title="MAIS QUE UMA AGÊNCIA"
                             content="Funcionamos como um laboratório de ideias, sempre experimentando e buscando soluções inovadoras fora do convencional."

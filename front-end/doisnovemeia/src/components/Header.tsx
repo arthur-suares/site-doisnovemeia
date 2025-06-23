@@ -1,16 +1,20 @@
+// app/components/Header.tsx
 'use client'
 
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link"; // Importe o componente Link do Next.js
-import { FaBehance, FaInstagram, FaLinkedinIn, FaFacebook, FaBars, FaTimes, FaUsers } from "react-icons/fa";
-import iconDois from "../../public/img/logo-doisnovemeia.svg";
+import { FaBars, FaTimes, FaUsers } from "react-icons/fa"; 
+import iconDois from "../../public/img/logo-doisnovemeia.svg"; // Caminho da logo principal
 import { RiChatSmile3Line } from "react-icons/ri";
 import { GrProjects } from "react-icons/gr";
 import { FaPuzzlePiece, FaBlog } from "react-icons/fa6";
 import { BsChatText } from "react-icons/bs";
 import { IoCodeWorkingOutline } from "react-icons/io5";
 import { usePathname } from 'next/navigation'; // Importe usePathname para saber a rota atual
+
+// Importe o novo componente de links de redes sociais
+import SocialMediaLinks from './SocialMediaLinks';
 
 
 export default function Header() {
@@ -40,39 +44,14 @@ export default function Header() {
   return (
     <>
       {/* Redes sociais - aparece no topo em telas menores */}
-      <div className="flex lg:hidden w-full bg-purple-brandPurle py-2 justify-center gap-6 fixed top-0 left-0 z-40">
-        <a
-          href='https://www.linkedin.com/company/doisnovemeia-publicidade/?originalSubdomain=br'
-          className='text-2xl text-white hover:scale-125 transition-transform'
-          target="_blank" // Abrir em nova aba
-          rel="noopener noreferrer" // Segurança
-        >
-          <FaLinkedinIn />
-        </a>
-        <a
-          href='https://www.facebook.com/Doisnovemeia?locale=pt_BR'
-          className='text-2xl text-white hover:scale-125 transition-transform'
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebook />
-        </a>
-        <a
-          href='https://www.instagram.com/doisnovemeia/'
-          className='text-2xl text-white hover:scale-125 transition-transform'
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
-        <a
-          href='https://www.behance.net/doisnovemeia?locale=pt_BR'
-          className='text-2xl text-white hover:scale-125 transition-transform'
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaBehance />
-        </a>
+      <div className="flex lg:hidden w-full bg-purple-brandPurle py-2 justify-center fixed top-0 left-0 z-40">
+        {/* Substituído o bloco de <a> tags pelo componente SocialMediaLinks */}
+        <SocialMediaLinks
+          iconSize={24} // Corresponde ao "text-2xl" original
+          iconColorClass="text-white"
+          gapClass="gap-6" // Mantém o espaçamento original
+          hoverEffectClass="hover:scale-125 transition-transform"
+        />
       </div>
 
       {/* Header desktop */}
@@ -102,39 +81,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center bg-purple-brandPurle gap-4 px-4 py-3 rounded-full">
-          <a
-            href='https://www.linkedin.com/company/doisnovemeia-publicidade/?originalSubdomain=br'
-            className='text-3xl text-white hover:scale-125 transition-transform'
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedinIn />
-          </a>
-          <a
-            href='https://www.facebook.com/Doisnovemeia?locale=pt_BR'
-            className='text-3xl text-white hover:scale-125 transition-transform'
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook />
-          </a>
-          <a
-            href='https://www.instagram.com/doisnovemeia/'
-            className='text-3xl text-white hover:scale-125 transition-transform'
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href='https://www.behance.net/doisnovemeia?locale=pt_BR'
-            className='text-3xl text-white hover:scale-125 transition-transform'
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaBehance />
-          </a>
+        <div className="flex items-center bg-purple-brandPurle px-4 py-3 rounded-full">
+          {/* Substituído o bloco de <a> tags pelo componente SocialMediaLinks */}
+          <SocialMediaLinks
+            iconSize={30} // Corresponde ao "text-3xl" original
+            iconColorClass="text-white"
+            gapClass="gap-4" // Mantém o espaçamento original
+            hoverEffectClass="hover:scale-125 transition-transform"
+          />
         </div>
       </header>
 
@@ -151,7 +105,7 @@ export default function Header() {
       <div
         className={`lg:hidden fixed top-0 left-0 h-full w-64 bg-white z-40 shadow-lg transform transition-transform duration-300 ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } pt-20`}
+        } pt-20`} // pt-20 para descolar das redes sociais no topo
       >
         <div className="flex flex-col items-start gap-6 px-6">
           {navItems.map((item) => (

@@ -14,13 +14,13 @@ export default function DiferencialBox({ title, content }: DiferencialBoxProps) 
 
   return (
     <div
-      className="relative bg-white/30 text-white rounded-full py-3 px-6 cursor-pointer flex items-center justify-between shadow-lg mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105"
+      className="relative bg-blue-brandBlue text-[#3E3E3E] w-full rounded-full py-3 px-6 cursor-pointer flex items-center justify-between shadow-lg mb-4 md:mb-0 transform transition-transform duration-300 hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <span className="font-lemonMilkBold text-lg md:text-xl">{title}</span>
+      <span className="font-lemonMilkBold text-md md:text-lg">{title}</span>
       <div className="ml-4 p-2 bg-white/40 rounded-full">
-        <IoAddOutline size={24} className="text-white" />
+        <IoAddOutline size={24} className="text-[#3E3E3E] font-bold" />
       </div>
 
       {/* Conteúdo Flutuante ao Hover */}
