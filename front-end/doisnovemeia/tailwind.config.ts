@@ -32,7 +32,8 @@ export default {
         'gradient-linear-purple': "linear-gradient(98.99deg, #A829F9 2.49%, #C76FFF 97.55%)",
         'gradient-linear-orange': "linear-gradient(117.45deg, #FF870A 5.56%, #FFAF46 70.8%, #FFBF5F 96.88%)",
         'gradient-linear-green': "linear-gradient(95.09deg, #A1FD03 21.42%, #BFFF78 97.64%)",
-        'gradient-linear-blue': "linear-gradient(98.99deg, #3FF5D2 2.49%, #92FFEA 97.55%)"
+        'gradient-linear-blue': "linear-gradient(98.99deg, #3FF5D2 2.49%, #92FFEA 97.55%)",
+        'gradient-radial-brandBlue': 'radial-gradient(circle at center, #92FFEA, #3FF5D2)',
       },
       animation: {
         pulseScale: 'pulseScale 3s infinite ease-in-out',

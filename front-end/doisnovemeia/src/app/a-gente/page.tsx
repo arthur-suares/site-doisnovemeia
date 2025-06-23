@@ -1,9 +1,12 @@
 import React from 'react'
+import AboutHeroSection from './AboutHeroSection';
+import EggSection from './EggSection';
 
 export default function page() {
     return  (
         <main>
-            <h1>A GENTE</h1>
+            <AboutHeroSection />
+            <EggSection />
         </main>
     );
 }
