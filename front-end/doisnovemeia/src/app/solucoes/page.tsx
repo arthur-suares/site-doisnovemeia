@@ -1,9 +1,13 @@
+import Hero from '@/components/Hero';
 import React from 'react'
+import Slogan from './components/Slogan';
+import Solutions from './components/Solutions';
 
 export default function page() {
     return  (
         <main>
-            <h1>SOLUÇÕES</h1>
+            <Slogan />
+            <Solutions />
         </main>
     );
 }

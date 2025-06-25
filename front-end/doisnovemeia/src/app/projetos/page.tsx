@@ -1,9 +1,14 @@
 import React from 'react'
+import Look from './components/Look';
+import Projects from './components/Projects';
+import ContactSection from '@/components/ContactSection';
 
 export default function page() {
     return  (
         <main>
-            <h1>PROJETOS</h1>
+            <Look />
+            <Projects />
+            <ContactSection />
         </main>
     );
 }

@@ -57,63 +57,63 @@ export default function ContactSection() {
         
         <form onSubmit={handleSubmit} className="mx-auto max-w-7xl relative z-10 flex flex-col items-center">
           {/* Bloco 1: Campos de Input */}
-          <div className="relative bg-orange-brandOrange p-8 shadow-lg w-[70%] self-start">
+          <div className="relative bg-orange-brandOrange p-8 shadow-lg w-[60%] self-start ml-10">
             {/* Ponta do Balão */}
             <div className="absolute top-0 left-0 -translate-x-1/2 w-8 h-8 bg-orange-brandOrange transform rotate-45 rounded-sm"></div>
 
-            <label htmlFor="name" className="block text-white font-lemonMilkLight text-lg mb-2">COMO QUER SER CHAMADO</label>
+            <label htmlFor="name" className="block text-white font-lemonMilkLight text-md mb-2">COMO QUER SER CHAMADO</label>
             <input
               type="text"
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-blue-brandBlue focus:outline-none"
+              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-purple-brandPurle focus:outline-none"
               required
             />
 
-            <label htmlFor="email" className="block text-white font-lemonMilkLight text-lg mb-2">QUAL O SEU E-MAIL?</label>
+            <label htmlFor="email" className="block text-white font-lemonMilkLight text-md mb-2">QUAL O SEU E-MAIL?</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-blue-brandBlue focus:outline-none"
+              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-purple-brandPurle focus:outline-none"
               required
             />
 
-            <label htmlFor="phone" className="block text-white font-lemonMilkLight text-lg mb-2">QUAL O SEU NÚMERO DE TELEFONE?</label>
+            <label htmlFor="phone" className="block text-white font-lemonMilkLight text-md mb-2">QUAL O SEU NÚMERO DE TELEFONE?</label>
             <input
               type="tel"
               id="phone"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-blue-brandBlue focus:outline-none"
+              className="w-full p-3 mb-6 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-purple-brandPurle focus:outline-none"
             />
 
-            <label htmlFor="howFound" className="block text-white font-lemonMilkLight text-lg mb-2">COMO VOCÊ NOS CONHECEU?</label>
+            <label htmlFor="howFound" className="block text-white font-lemonMilkLight text-md mb-2">COMO VOCÊ NOS CONHECEU?</label>
             <input
               type="text"
               id="howFound"
               name="howFound"
               value={formData.howFound}
               onChange={handleChange}
-              className="w-full p-3 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-blue-brandBlue focus:outline-none"
+              className="w-full p-3 rounded-full border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-purple-brandPurle focus:outline-none"
             />
           </div>
 
           {/* Bloco 2: Campo de Problema e Botão Enviar */}
           <div className="flex flex-col relative bg-orange-brandOrange p-8 w-[60%] mt-14 self-end">
-            <label htmlFor="problem" className="block text-white font-lemonMilkBold text-xl mb-4">CONTE SEU PROBLEMA QUE VAMOS BUSCAR A SOLUÇÃO!</label>
+            <label htmlFor="problem" className="block text-white font-lemonMilkLight text-xl mb-4">CONTE SEU PROBLEMA QUE VAMOS BUSCAR A SOLUÇÃO!</label>
             <textarea
               id="problem"
               name="problem"
               value={formData.problem}
               onChange={handleChange}
               rows={8}
-              className="w-full p-3 mb-8 rounded-3xl border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-blue-brandBlue focus:outline-none resize-none"
+              className="w-full p-3 mb-8 rounded-3xl border-0 bg-white text-gray-800 placeholder-gray-500 focus:ring-2 focus:ring-purple-brandPurle focus:outline-none resize-none"
               required
             ></textarea>
 
