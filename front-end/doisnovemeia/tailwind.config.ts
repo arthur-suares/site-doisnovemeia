@@ -29,6 +29,7 @@ export default {
         },
       },
       backgroundImage: {
+        'gradient-custom-purple': 'linear-gradient(198.53deg, #D189FF -1.98%, #A829F9 47.24%)',
         'gradient-linear-purple': "linear-gradient(98.99deg, #A829F9 2.49%, #C76FFF 97.55%)",
         'gradient-linear-orange': "linear-gradient(117.45deg, #FF870A 5.56%, #FFAF46 70.8%, #FFBF5F 96.88%)",
         'gradient-linear-green': "linear-gradient(95.09deg, #A1FD03 21.42%, #BFFF78 97.64%)",

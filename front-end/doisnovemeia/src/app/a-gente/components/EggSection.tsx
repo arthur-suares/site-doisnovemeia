@@ -5,12 +5,12 @@ import React from 'react';
 import Image from 'next/image';
 
 // Caminho da imagem do ovo (ajuste conforme a estrutura do seu projeto)
-import eggImage from '../../../public/img/egg.svg'; 
+import eggImage from '../../../../public/img/egg.svg'; 
 
 export default function EggSection() {
 
   return (
-    <section className="relative w-full bg-gradient-linear-orange py-16 px-8 overflow-hidden">
+    <section className="relative w-full bg-gradient-linear-orange py-[100px] px-8 overflow-hidden">
       <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-around gap-12 md:gap-8">
         {/* Coluna 1: Missão */}
         <div className="flex flex-col p-6 border-2 border-white rounded-[40px] bg-white/20 shadow-lg md:w-1/3">

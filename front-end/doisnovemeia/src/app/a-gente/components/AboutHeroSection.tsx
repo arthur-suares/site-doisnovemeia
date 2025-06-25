@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { IoAddOutline } from 'react-icons/io5'; // Para o ícone de +
 
 // Caminhos dos assets (ajuste conforme a estrutura do seu projeto)
-import aviaoPaper from '../../../public/img/aviao-papel.svg';
-import gotasVerde from '../../../public/img/gotas-verde.svg';
+import aviaoPaper from '../../../../public/img/aviao-papel.svg';
+import gotasVerde from '../../../../public/img/gotas-verde.svg';
 
 // --- REMOVIDO: Definição de Tipos PlusPosition e NinhoDataItem ajustada ---
 interface NinhoDataItem {
@@ -28,7 +28,7 @@ export default function AboutHeroSection() {
   ];
 
   return (
-    <section className="relative w-full bg-purple-brandPurle py-16 px-8 overflow-hidden">
+    <section className="relative w-full bg-gradient-custom-purple py-16 px-8 overflow-hidden">
       {/* Imagem do Avião de Papel (posicionamento absoluto para "cortar" a página) */}
       <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 -rotate-12 h-auto pointer-events-none z-10 lg:w-[100vw] lg:top-[-10%] lg:-rotate-6">
         <Image

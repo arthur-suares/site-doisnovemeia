@@ -84,7 +84,7 @@ export default function Footer() {
         {/* Coluna 5: Botão BORA CONVERSAR? */}
         <div className="flex justify-center items-center lg:w-1/5">
           <Link href="/bora-conversar" passHref>
-            <button className="flex flex-col items-center justify-center bg-green-brandGreen text-purple-brandPurle font-lemonMilkBold text-xl rounded-full w-48 h-48 lg:w-56 lg:h-56 shadow-xl hover:scale-105 transition-transform duration-300">
+            <button className="flex flex-col items-center justify-center bg-green-brandGreen text-purple-brandPurle font-lemonMilkBold text-xl rounded-full w-48 h-48 shadow-xl hover:scale-105 transition-transform duration-300">
               <strong>
                 BORA
               </strong>
