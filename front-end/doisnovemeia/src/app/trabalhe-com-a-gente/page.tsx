@@ -1,9 +1,10 @@
 import React from 'react'
+import Register from './components/Register';
 
 export default function page() {
     return  (
         <main>
-            <h1>TRABALHE COM A GENTE</h1>
+            <Register />
         </main>
     );
 }

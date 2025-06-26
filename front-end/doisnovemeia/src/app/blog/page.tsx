@@ -1,9 +1,14 @@
 import React from 'react'
+import BlogTitle from './components/BlogTitle';
+import MainContent from './components/MainContent';
+import ContactSection from '@/components/ContactSection';
 
 export default function page() {
     return  (
         <main>
-            <h1>BLOG</h1>
+            <BlogTitle />
+            <MainContent />
+            <ContactSection />
         </main>
     );
 }

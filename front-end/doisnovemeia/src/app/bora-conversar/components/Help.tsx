@@ -4,11 +4,12 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import aviao from '../../public/img/aviao-papel.svg';
-import olhosAzuis from '../../public/img/gotas-azuis.svg';
-import olhosVerde from '../../public/img/gotas-verde.svg';
+import aviao from '../../../../public/img/aviao-papel.svg';
+import olhosAzuis from '../../../../public/img/gotas-azuis.svg';
+import olhosVerde from '../../../../public/img/gotas-verde.svg';
+import Contact from './Contact';
 
-export default function ContactSection() {
+export default function Help() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,7 +34,7 @@ export default function ContactSection() {
     <section className="relative w-full bg-gradient-custom-purple py-20 px-8 overflow-hidden">
       {/* Título Principal */}
       <h1 className="text-2xl md:text-xl font-lemonMilkRegular text-white text-center mb-16">
-        BORA CONVERSAR
+        Como a dois pode te ajudar
       </h1>
 
       {/* Formulário Principal */}
@@ -125,6 +126,7 @@ export default function ContactSection() {
           </div>
         </form>
       </div>
+      <Contact />
     </section>
   );
 }
