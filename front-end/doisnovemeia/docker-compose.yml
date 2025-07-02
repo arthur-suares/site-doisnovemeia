@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: doisnovemeiauser
+      POSTGRES_PASSWORD: doisnovemeiapass
+      POSTGRES_DB: doisnovemeiadb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U doisnovemeiauser -d doisnovemeiadb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  pgdata:
