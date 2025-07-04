@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "generate:watch": "nodemon --watch prisma --ext prisma --exec \"sudo npx prisma generate\"",   
+    "generate:watch": "nodemon --watch prisma --ext prisma --exec \"sudo npx prisma generate\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^6.11.0",
+    "@prisma/client": "^6.11.1",
     "next": "15.1.8",
     "nodemon": "^3.1.10",
     "react": "^19.0.0",
@@ -27,7 +27,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.8",
     "postcss": "^8",
-    "prisma": "^6.11.0",
+    "prisma": "^6.11.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
