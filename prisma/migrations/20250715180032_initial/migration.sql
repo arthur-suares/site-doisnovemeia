@@ -8,5 +8,13 @@ CREATE TABLE "user" (
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "postagem" (
+    "id" TEXT NOT NULL DEFAULT gen_random_uuid(),
+    "title" TEXT NOT NULL,
+
+    CONSTRAINT "postagem_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");

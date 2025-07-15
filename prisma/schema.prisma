@@ -14,3 +14,8 @@ model user {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model postagem {
+  id        String      @id @default(dbgenerated("gen_random_uuid()"))
+  title     String  
+}
