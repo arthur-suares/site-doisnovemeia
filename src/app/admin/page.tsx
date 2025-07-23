@@ -12,7 +12,6 @@ export default async function AdminPage() {
   if (!session.isLoggedIn || !session.userId) {
     redirect('/login');
   }
-g
   const user = await prisma.user.findUnique({
     where: { id: session.userId },
     select: { email: true }
