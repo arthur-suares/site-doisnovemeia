@@ -22,14 +22,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Nome e email são obrigatórios' }, { status: 400 });
     }
 
-    // Encriptar a senha antes de armazenar
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     
-    // ✅ Não passe `id` aqui
     const newUser = await createUser(name, email, hashedPassword);
 
-    // Usando desestruturação com renomeação para não retornar a senha da resposta da requisição
     const { password: _, ...userWithoutPassword } = newUser;
 
     return NextResponse.json(userWithoutPassword, { status: 201 });

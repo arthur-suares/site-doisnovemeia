@@ -1,9 +1,9 @@
 // src/controllers/userController.ts
 
-import { prisma } from '../models/prisma'; // Usando seu caminho de importação
-import bcrypt from 'bcrypt'; // Importe o bcrypt
+import { prisma } from '../models/prisma';
+import { hash, compare } from 'bcrypt'; 
 
-// Função que você já tinha, está ótima.
+// Função para buscar todos os usuários (sem senha)
 export async function getAllUsers() {
   return await prisma.user.findMany({
     select: {
@@ -14,13 +14,13 @@ export async function getAllUsers() {
   });
 }
 
-// Sua função createUser, agora corrigida para usar hash.
+// Função para criar um novo usuário com senha criptografada
 export async function createUser(name: string, email: string, password: string) {
-  const passwordHash = await bcrypt.hash(password, 10); // Gera o hash da senha
+  const passwordHash = await hash(password, 10);
 
   try {
     return await prisma.user.create({
-      data: { name, email, password: passwordHash }, // Salva o hash
+      data: { name, email, password: passwordHash },
     });
   } catch (error) {
     console.error('---- Detailed Prisma error:', error);
@@ -28,40 +28,35 @@ export async function createUser(name: string, email: string, password: string) 
   }
 }
 
-// --- NOVA FUNÇÃO ---
-// Interface para organizar os parâmetros da nova função.
+// Interface para a função de alterar senha
 interface ChangePasswordParams {
   userId: string;
   currentPassword_DB: string;
   newPassword_DB: string;
 }
 
+// Função para alterar a senha do usuário
 export async function changeUserPassword({
   userId,
   currentPassword_DB,
   newPassword_DB,
 }: ChangePasswordParams) {
-  // 1. Busca o usuário e sua senha atual (o hash)
   const user = await prisma.user.findUnique({
     where: { id: userId },
   });
 
   if (!user || !user.password) {
-    // Adicionado !user.password para garantir que o campo existe
     throw new Error('Usuário não encontrado.');
   }
 
-  // 2. Compara a senha que o usuário digitou com o hash salvo no banco
-  const isPasswordValid = await bcrypt.compare(currentPassword_DB, user.password);
+  const isPasswordValid = await compare(currentPassword_DB, user.password);
 
   if (!isPasswordValid) {
     throw new Error('A senha atual está incorreta.');
   }
 
-  // 3. Se a senha estiver correta, cria um hash para a nova senha
-  const newPasswordHash = await bcrypt.hash(newPassword_DB, 10);
+  const newPasswordHash = await hash(newPassword_DB, 10);
 
-  // 4. Atualiza o usuário com o hash da nova senha
   await prisma.user.update({
     where: { id: userId },
     data: {
@@ -70,4 +65,47 @@ export async function changeUserPassword({
   });
 
   return { success: true, message: 'Senha alterada com sucesso!' };
+}
+
+interface ChangeEmailParams {
+  userId: string;
+  newEmail: string;
+  password_DB: string; 
+}
+
+export async function changeUserEmail({
+  userId,
+  newEmail,
+  password_DB,
+}: ChangeEmailParams) {
+  // Busca o usuário e sua senha atual para verificação
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  if (!user) {
+    throw new Error('Usuário não encontrado.');
+  }
+
+  // Verifica se a senha fornecida pelo usuário está correta
+  const isPasswordValid = await compare(password_DB, user.password);
+  if (!isPasswordValid) {
+    throw new Error('Senha incorreta. Verificação falhou.');
+  }
+
+  // Verifica se o novo e-mail já está em uso por outra conta
+  const existingEmail = await prisma.user.findUnique({
+    where: { email: newEmail },
+  });
+  if (existingEmail && existingEmail.id !== userId) {
+    throw new Error('Este e-mail já está em uso por outra conta.');
+  }
+
+  // Se todas as verificações passarem, atualiza o e-mail no banco de dados
+  await prisma.user.update({
+    where: { id: userId },
+    data: { email: newEmail },
+  });
+
+  return { success: true, message: 'E-mail alterado com sucesso!' };
 }
