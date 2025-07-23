@@ -1,15 +1,9 @@
-// Caminho: src/app/api/auth/login/route.ts
+// src/app/api/auth/login/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession, IronSession } from 'iron-session';
-import { cookies } from 'next/headers';
 import { compare } from 'bcrypt';
 import { prisma } from '@/models/prisma';
-import { sessionOptions } from '@/lib/session';
-
-export interface SessionData {
-  user?: { id: string; email: string; };
-}
+import { getSession } from '@/lib/session'; // Usando nossa função centralizada
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,13 +22,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Credenciais inválidas' }, { status: 401 });
     }
 
-    const session: IronSession<SessionData> = await getIronSession(
-      await cookies(),
-      sessionOptions,
-    );
-    
-    session.user = { id: user.id, email: user.email };
-    await session.save();
+    // --- CORREÇÃO AQUI ---
+    // Agora usamos nossa função getSession e salvamos os dados no formato correto.
+    const session = await getSession();
+    session.userId = user.id;       // ✅ Salva o ID do usuário
+    session.isLoggedIn = true; // ✅ Define o status de login
+    await session.save();          // Salva o cookie no navegador
 
     return NextResponse.json({ message: 'Login bem-sucedido' }, { status: 200 });
   } catch (error) {
