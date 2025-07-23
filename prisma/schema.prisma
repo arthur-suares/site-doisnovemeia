@@ -19,4 +19,5 @@ model user {
 model postagem {
   id        String      @id @default(dbgenerated("gen_random_uuid()"))
   title     String  
+  imagem    Bytes
 }
