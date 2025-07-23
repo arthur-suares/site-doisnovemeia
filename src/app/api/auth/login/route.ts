@@ -3,7 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { compare } from 'bcrypt';
 import { prisma } from '@/models/prisma';
-import { getSession } from '@/lib/session'; // Usando nossa função centralizada
+import { getSession } from '@/lib/session';
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,12 +22,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Credenciais inválidas' }, { status: 401 });
     }
 
-    // --- CORREÇÃO AQUI ---
-    // Agora usamos nossa função getSession e salvamos os dados no formato correto.
     const session = await getSession();
-    session.userId = user.id;       // ✅ Salva o ID do usuário
-    session.isLoggedIn = true; // ✅ Define o status de login
-    await session.save();          // Salva o cookie no navegador
+    session.userId = user.id;    
+    session.isLoggedIn = true;
+    await session.save();         
 
     return NextResponse.json({ message: 'Login bem-sucedido' }, { status: 200 });
   } catch (error) {
