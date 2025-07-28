@@ -3,7 +3,7 @@ import { getIronSession } from 'iron-session';
 import { redirect } from 'next/navigation';
 import { sessionOptions } from '@/lib/session';
 import { SessionData } from '@/app/api/auth/login/route';
-import PostsPageCliente from './postsPageClient';
+import UsersPageClient from './userPageClient';
 
 export default async function UsersPage() {
   const cookieStore = await cookies(); // 👈 aguarde os cookies
@@ -13,5 +13,5 @@ export default async function UsersPage() {
     redirect('/login');
   }
 
-  return <PostsPageCliente />;
+  return <UsersPageClient />;
 }
