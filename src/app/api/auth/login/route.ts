@@ -1,15 +1,9 @@
-// Caminho: src/app/api/auth/login/route.ts
+// src/app/api/auth/login/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession, IronSession } from 'iron-session';
-import { cookies } from 'next/headers';
 import { compare } from 'bcrypt';
 import { prisma } from '@/models/prisma';
-import { sessionOptions } from '@/lib/session';
-
-export interface SessionData {
-  user?: { id: string; email: string; };
-}
+import { getSession } from '@/lib/session';
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,13 +22,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Credenciais inválidas' }, { status: 401 });
     }
 
-    const session: IronSession<SessionData> = await getIronSession(
-      await cookies(),
-      sessionOptions,
-    );
-    
-    session.user = { id: user.id, email: user.email };
-    await session.save();
+    const session = await getSession();
+    session.userId = user.id;    
+    session.isLoggedIn = true;
+    await session.save();         
 
     return NextResponse.json({ message: 'Login bem-sucedido' }, { status: 200 });
   } catch (error) {
