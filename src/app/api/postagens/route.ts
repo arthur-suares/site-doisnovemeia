@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 export async function POST(request: Request) {
   const formData = await request.formData();
   const title = formData.get("title")?.toString() || "";
+  const description = formData.get("description")?.toString() || "";
   const file = formData.get("imagem") as File;
 
   if (!file || !title) {
@@ -21,6 +22,7 @@ export async function POST(request: Request) {
     data: {
       title,
       imagem: buffer,
+      description,
     },
   });
 
@@ -33,6 +35,7 @@ export async function GET() {
     select: {
       id: true,
       title: true,
+      description: true,
     },
   });
 

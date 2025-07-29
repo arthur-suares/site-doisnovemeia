@@ -23,9 +23,12 @@ export default function PostagensPage() {
 
       {/* Modal com o formulário */}
       <Modal isOpen={modalAberta} onClose={() => setModalAberta(false)}>
-        <FormNovaPostagem />
+        <FormNovaPostagem onSucess={() => {
+          setModalAberta(false)
+          location.reload();
+        }} />
       </Modal>
-
+        
       {/* Listagem das postagens */}
       <ListaPostagens />
     </main>

@@ -9,15 +9,16 @@ datasource db {
 }
 
 model user {
-  id        String   @id @default(dbgenerated("gen_random_uuid()"))
-  name      String
-  email     String   @unique
-  password  String     
-  createdAt DateTime @default(now())
+  id            String   @id @default(dbgenerated("gen_random_uuid()"))
+  name          String
+  email         String   @unique
+  password      String     
+  createdAt     DateTime @default(now())
 }
 
 model postagem {
-  id        String      @id @default(dbgenerated("gen_random_uuid()"))
-  title     String  
-  imagem    Bytes
+  id            String      @id @default(dbgenerated("gen_random_uuid()"))
+  title         String  
+  imagem        Bytes
+  description   String
 }

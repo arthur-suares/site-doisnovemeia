@@ -11,7 +11,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   try
   {
     const body = await req.json();
-    const { title } = body;
+    const { title, description } = body;
 
     if (!title) {
         return NextResponse.json({ error: "Título é obrigatório" }, { status: 400 });
@@ -19,7 +19,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 
     const postagem = await prisma.postagem.update({
         where: { id },
-        data: { title },
+        data: { title, description },
     });
 
     return NextResponse.json(postagem);

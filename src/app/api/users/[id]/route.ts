@@ -15,6 +15,11 @@ export async function PATCH(req: NextRequest, {params}: {params: {id: string}}) 
       return NextResponse.json({ error: 'ID é obrigatório para atualização' }, { status: 400 });
     }
 
+    // Bloqueia alterações no usuário admin
+    if (email === process.env.ADMIN_EMAIL) {
+      return NextResponse.json({ error: 'Você não pode alterar o usuário admin' }, { status: 403 });
+    }
+
     let hashedPassword = undefined;
 
     if (password) {
@@ -41,25 +46,34 @@ export async function PATCH(req: NextRequest, {params}: {params: {id: string}}) 
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-    const { id } = params;
-    
-    try 
-    {
-        if (!id) {
-            return NextResponse.json({ error: 'ID é obrigatório para exclusão' }, { status: 400 });
-        }
+  const { id } = params;
 
-        const deletedUser = await prisma.user.delete({ where: {id} });
-
-        if (!deletedUser) {
-            return NextResponse.json({ error: 'Usuário não encontrado' }, { status: 404 });
-        }
-
-        return NextResponse.json({ message: 'Usuário excluído com sucesso' }, { status: 200 });
-    } 
-    catch (error) 
-    {
-        console.error('[DELETE USER ERROR]', error);
-        return NextResponse.json({ error: 'Erro ao excluir usuário' }, { status: 500 });
+  try {
+    if (!id) {
+      return NextResponse.json({ error: 'ID é obrigatório para exclusão' }, { status: 400 });
     }
+
+    const userToDelete = await prisma.user.findUnique({where: { id }});
+
+    if (!userToDelete) {
+      return NextResponse.json({ error: 'Usuário não encontrado' }, { status: 404 });
+    }
+    
+    // Bloqueia alterações no usuário admin
+    if (userToDelete.email === process.env.ADMIN_EMAIL) {
+      return NextResponse.json({ error: 'Você não pode deletar o usuário admin' }, { status: 403 });
+    }
+
+    const deletedUser = await prisma.user.delete({ where: { id } });
+
+    if (!deletedUser) {
+      return NextResponse.json({ error: 'Usuário não encontrado' }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: 'Usuário excluído com sucesso' }, { status: 200 });
+  }
+  catch (error) {
+    console.error('[DELETE USER ERROR]', error);
+    return NextResponse.json({ error: 'Erro ao excluir usuário' }, { status: 500 });
+  }
 }

@@ -12,8 +12,6 @@ interface User {
 }
 
 export default function UsersPage() {
-
-
   const [users, setUsers] = useState<User[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -101,37 +99,47 @@ export default function UsersPage() {
 
       {/* Tabela de usuários */}
       <div className="grid gap-4">
-        {users.map((user) => (
-          <div key={user.id} className="border p-4 rounded shadow flex justify-between items-center">
-            <div>
-              <p className="font-semibold">{user.name}</p>
-              <p className="text-sm text-gray-600">{user.email}</p>
+        {users.map((user) => {
+          const isAdminUser = user.email === 'admin@doisnovemeia.com';
+
+          return (
+            <div key={user.id} className="border p-4 rounded shadow flex justify-between items-center">
+              <div>
+                <p className="font-semibold">{user.name}</p>
+                <p className="text-sm text-gray-600">{user.email}</p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  disabled={isAdminUser}
+                  className={`${
+                    isAdminUser ? 'bg-gray-300 cursor-not-allowed' : 'bg-yellow-400 hover:bg-yellow-500'
+                  } text-black font-semibold px-3 py-1 rounded flex items-center gap-1 transition duration-500`}
+                  onClick={() => {
+                    setSelectedUser(user);
+                    setShowEditModal(true);
+                  }}
+                >
+                  <Pencil size={16} /> Editar
+                </button>
+                <button
+                  disabled={isAdminUser}
+                  className={`${
+                    isAdminUser ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'
+                  } text-white font-semibold px-3 py-1 rounded flex items-center gap-1 transition duration-500`}
+                  onClick={() => {
+                    setSelectedUser(user);
+                    setNewName('');
+                    setNewEmail('');
+                    setNewPassword('');
+                    setShowDeleteModal(true);
+                  }}
+                >
+                  <Trash2 size={16}/> Excluir
+                </button>
+              </div>
             </div>
-            <div className="flex gap-2">
-              <button
-                className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-3 py-1 rounded flex items-center gap-1 transition duration-500"
-                onClick={() => {
-                  setSelectedUser(user);
-                  setShowEditModal(true);
-                }}
-              >
-                <Pencil size={16} /> Editar
-              </button>
-              <button
-                className="bg-red-500 hover:bg-red-600 text-white font-semibold px-3 py-1 rounded flex items-center gap-1 transition duration-500"
-                onClick={() => {
-                  setSelectedUser(user);
-                  setNewName('');
-                  setNewEmail('');
-                  setNewPassword('');
-                  setShowDeleteModal(true);
-                }}
-              >
-                <Trash2 size={16}/> Excluir
-              </button>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Modal de criação */}

@@ -15,6 +15,7 @@ export default function ListaPostagens() {
   const [modalEditarAberta, setModalEditarAberta] = useState(false);
   const [modalExcluirAberta, setModalExcluirAberta] = useState(false);
   const [novoTitulo, setNovoTitulo] = useState('');
+  const [novaDescricao, setNovaDescricao] = useState('');
 
   useEffect(() => {
     async function carregarPostagens() {
@@ -88,6 +89,15 @@ export default function ListaPostagens() {
           onChange={(e) => setNovoTitulo(e.target.value)}
           className="w-full border p-2 rounded mb-4"
         />
+
+        <h2 className="text-lg font-semibold mb-2">Editar Descrição</h2>
+        <input
+          type="text"
+          value={novaDescricao}
+          onChange={(e) => setNovaDescricao(e.target.value)}
+          className="w-full border p-2 rounded mb-4"
+        />
+
         <button
           onClick={atualizarTitulo}
           className="bg-green-brandGreen hover:bg-green-greenHover text-black font-semibold px-4 py-2 rounded transition duration-500"
