@@ -2,6 +2,7 @@ import { getIronSession } from 'iron-session';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { Users, FileText } from 'lucide-react'; // Exemplo de ícones
 import { prisma } from '@/models/prisma';
 import { sessionOptions, SessionData } from '@/lib/session';
 import LogoutButton from '@/components/LogoutButton'; // 1. Importar o botão
@@ -23,31 +24,46 @@ export default async function AdminPage() {
   }
 
   return (
-    <div className="p-8">
-      {/* 2. Div principal para alinhar título e botão de logout */}
-      <div className="flex justify-between items-start">
-        <div>
-          <h1 className="text-3xl font-bold">Painel do Administrador</h1>
-          <p className="mt-2 text-lg">Bem-vindo, {user.email}!</p>
-          <p className="text-gray-600">Este conteúdo é protegido e só pode ser visto por você.</p>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8 space-y-6">
+        <h1 className="text-3xl font-bold text-center text-gray-800">Painel do Administrador</h1>
+        <p className="text-center text-gray-600">Bem-vindo, {user.email}!</p>
+
+        {/* Grid de botões */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+          {/* Card: Gerenciar Postagens */}
+          <Link
+            href="/admin/posts"
+            className="w-full h-[100px] flex items-center gap-[3vw] px-[2vw] border-2 rounded-xl cursor-pointer transition-all duration-200 font-sans 
+                      bg-purple-brandPurle text-white 
+                      hover:bg-beige-brandBeige hover:text-black"
+          >
+            <FileText className="text-[40px]" />
+            <div className="flex flex-col text-sm max-[600px]:text-[12px]">
+              <h3 className="text-base font-semibold mb-1">Gerenciar Postagens</h3>
+              <span className="text-xs max-[600px]:text-[10px]">Criar, editar e remover postagens</span>
+            </div>
+          </Link>
+
+          {/* Card: Gerenciar Usuários */}
+          <Link
+            href="/admin/users"
+            className="w-full h-[100px] flex items-center gap-[3vw] px-[2vw] border-2 rounded-xl cursor-pointer transition-all duration-200 font-sans 
+                      bg-purple-brandPurle text-white 
+                      hover:bg-beige-brandBeige hover:text-black"
+          >
+            <Users className="text-[40px]" />
+            <div className="flex flex-col text-sm max-[600px]:text-[12px]">
+              <h3 className="text-base font-semibold mb-1">Gerenciar Usuários</h3>
+              <span className="text-xs max-[600px]:text-[10px]">Adicionar, editar e remover usuários</span>
+            </div>
+          </Link>
         </div>
-        
-        {/* 3. Botão de logout posicionado aqui */}
-        <LogoutButton />
-      </div>
-      
-      <div className="mt-8 flex gap-4">
-        <Link href="/change-password">
-          <button className="px-4 py-2 font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Alterar Senha
-          </button>
-        </Link>
-        
-        <Link href="/change-email">
-          <button className="px-4 py-2 font-semibold text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-            Alterar E-mail
-          </button>
-        </Link>
+
+        {/* Botão logout centralizado */}
+        <div className="flex justify-center mt-4">
+          <LogoutButton />
+        </div>
       </div>
     </div>
   );

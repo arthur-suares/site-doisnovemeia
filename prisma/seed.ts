@@ -1,10 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { hash } from 'bcrypt';
+import dotenv from 'dotenv'; 
 
+dotenv.config();
 const prisma = new PrismaClient();
 
 async function main() {
-  const adminEmail = "admin@exemplo.com";
+  const adminEmail = "admin@doisnovemeia.com";
   const adminPassword = "senhaSuperForte123";
 
   console.log('Iniciando o seed do banco de dados...');

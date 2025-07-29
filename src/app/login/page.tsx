@@ -62,7 +62,7 @@ export default function LoginPage() {
           )}
           <button
             type="submit"
-            className="w-full bg-purple-brandPurle text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+            className="w-full bg-purple-brandPurle text-white py-2 rounded-lg hover:bg-purple-purpleOpacity transition duration-200"
             disabled={loading}
           >
             {loading ? (<PuffLoader color="#fff" size={27} />) : ( 'Entrar' )}

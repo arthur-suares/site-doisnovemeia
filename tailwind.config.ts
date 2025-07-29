@@ -16,16 +16,21 @@ export default {
       colors: {
         purple: {
           brandPurle: "#A829F9",
-          purpleOpacity: "#A829F933"
+          purpleOpacity: "#A829F933",
+          purpleHover: "#55167d"
         },
         orange: {
           brandOrange:"#FF870A",
         },
         green: {
           brandGreen: "#A1FD03",
+          greenHover: "#78BA01"
         },
         blue: {
-          brandBlue: "#3FF5D2"
+          brandBlue: "#3FF5D2",
+        },
+        beige: {
+          brandBeige: '#EDE7F6',
         },
       },
       backgroundImage: {
