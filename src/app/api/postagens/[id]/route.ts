@@ -11,7 +11,7 @@ export async function PATCH(request: NextRequest, context: unknown) {
  
   try
   {
-    const body = await req.json();
+    const body = await request.json();
     const { title, description } = body;
 
     if (!title) {
