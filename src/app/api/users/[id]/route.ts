@@ -9,7 +9,7 @@ export async function PATCH(request: NextRequest, context: unknown) {
   try {
     const { params } = context as { params: { id: string } };
     const { id } = params;
-    const body = await req.json();
+    const body = await request.json();
     const { name, email, password } = body;
 
     if (!id) {
