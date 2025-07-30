@@ -31,7 +31,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 }
 
 // DELETE - Remover uma postagem
-export async function DELETE(req: NextRequest, context: {params: Record<string, string>  }) {
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   const { id } = context.params;
 
   try {
