@@ -5,7 +5,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 // PATCH - Atualizar título de uma postagem
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, context: unknown) {
+  const { params } = context as { params: { id: string } };
   const { id } = params;
  
   try
