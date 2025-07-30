@@ -31,8 +31,9 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
 }
 
 // DELETE - Remover uma postagem
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = context.params;
+export async function DELETE(request: NextRequest, context: unknown) {
+  const { params } = context as { params: { id: string } };
+  const { id } = params;
 
   try {
     await prisma.postagem.delete({ where: { id } });
