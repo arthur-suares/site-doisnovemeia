@@ -5,8 +5,9 @@ import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
-export async function PATCH(req: NextRequest, {params}: {params: {id: string}}) {
+export async function PATCH(request: NextRequest, context: unknown) {
   try {
+    const { params } = context as { params: { id: string } };
     const { id } = params;
     const body = await req.json();
     const { name, email, password } = body;
@@ -45,7 +46,8 @@ export async function PATCH(req: NextRequest, {params}: {params: {id: string}}) 
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: unknown) {
+  const { params } = context as { params: { id: string } };
   const { id } = params;
 
   try {
