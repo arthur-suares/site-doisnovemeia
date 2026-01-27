@@ -3,10 +3,12 @@ import gotas from "../../public/img/gotas.svg";
 import raioAzul from "../../public/img/raio-azul.svg";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Hero2() {
 
     const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+    const router = useRouter();
 
     return (
         <section className="bg-gradient-linear-green w-full py-16 px-8">
@@ -18,6 +20,7 @@ export default function Hero2() {
           <button className="mt-10 bg-white/70 text-white font-bold px-2 py-3 lg:py-4 lg:px-8 rounded-full transition-transform duration-200"
             onMouseEnter={() => setHoveredIcon('buttonDois')}
             onMouseLeave={() => setHoveredIcon(null)}
+            onClick={() => router.push("/a-gente")}
             style={{ transform: hoveredIcon === 'buttonDois' ? 'scale(1.2)' : 'scale(1)' }}
           >
             <strong className="font-lemonMilkRegular text-[#3E3E3E] text-md">
