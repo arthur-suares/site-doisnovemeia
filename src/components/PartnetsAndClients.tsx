@@ -22,9 +22,10 @@ export default function PartnersAndClients() {
     { logo: '/img/globo.svg', alt: 'Logo TV Globo' },
     { logo: '/img/sigma.svg', alt: 'Logo Sigma' },
     { logo: '/img/you.svg', alt: 'Logo YOU' },
-    { logo: '/img/client5.svg', alt: 'Logo Cliente 5' },
-    { logo: '/img/client6.svg', alt: 'Logo Cliente 6' },
-    { logo: '/img/client7.svg', alt: 'Logo Cliente 7' },
+    { logo: '/img/look&feel.svg', alt: 'Logo Look & Feel' },
+    { logo: '/img/grupo-gestao.svg', alt: 'Logo Grupo Gestão' },
+    { logo: '/img/concentro.svg', alt: 'Logo Concentro' },
+    { logo: '/img/engnet.svg', alt: 'Logo EngNet' },
   ];
 
   const visibleItemsCount = 4;

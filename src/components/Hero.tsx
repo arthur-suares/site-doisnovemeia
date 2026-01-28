@@ -2,8 +2,11 @@ import Image from "next/image";
 import icondoisWhite from "../../public/img/logo-white.svg";
 import raioVerde from "../../public/img/raio-verde.svg";
 import raioLaranja from "../../public/img/raios-laranja.svg";
+import { useRouter } from "next/navigation";
 
 export default function Hero() { 
+
+  const router = useRouter();
 
     return (
         <section className="bg-gradient-linear-purple w-full py-16 px-8">
@@ -34,7 +37,7 @@ export default function Hero() {
           <p className="mb-6 text-md font-lemonMilkLight">
             Quer saber mais sobre o que fazemos?
           </p>
-          <button className="bg-white/40 text-white py-4 px-8 rounded-full hover:bg-purple-brandPurle transition duration-300 ease-in-out">
+          <button onClick={() => router.push("/solucoes")} className="bg-white/40 text-white py-4 px-8 rounded-full hover:bg-purple-brandPurle transition duration-300 ease-in-out">
             <strong className="font-lemonMilkBold">
               Veja aqui nossas soluções
             </strong>
