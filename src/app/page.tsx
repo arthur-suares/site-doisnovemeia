@@ -7,12 +7,12 @@ import PartnersAndClients from "@/components/PartnetsAndClients";
 
 export default function Home() {
 
-    return (
-    <main className="flex flex-col max-w-full">
-      <Hero />
-      <Hero2 />
-      <Hero3 />
-      <PartnersAndClients />
-    </main>
-    );
+  return (
+  <main className="flex flex-col max-w-full">
+    <Hero />
+    <Hero2 />
+    <Hero3 />
+    <PartnersAndClients />
+  </main>
+  );
 }

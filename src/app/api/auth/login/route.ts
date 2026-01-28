@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { compare } from 'bcrypt';
+import bcrypt from 'bcrypt'
 import { prisma } from '@/models/prisma';
 import { getSession } from '@/lib/session';
 
@@ -13,13 +14,13 @@ export async function POST(req: NextRequest) {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      return NextResponse.json({ message: 'Credenciais inválidas' }, { status: 401 });
+      return NextResponse.json({ message: 'Email e/ou senha inválidos!' }, { status: 401 });
     }
 
     const isPasswordValid = await compare(password, user.password);
-
+    
     if (!isPasswordValid) {
-      return NextResponse.json({ message: 'Credenciais inválidas' }, { status: 401 });
+      return NextResponse.json({ message: 'Email e/ou senha inválidos!'}, { status: 401 });
     }
 
     const session = await getSession();

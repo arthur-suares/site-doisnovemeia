@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Nome e email são obrigatórios' }, { status: 400 });
     }
 
-    const saltRounds = 10;
+    const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     
     const newUser = await createUser(name, email, hashedPassword);

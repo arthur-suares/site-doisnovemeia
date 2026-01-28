@@ -16,11 +16,10 @@ export async function getAllUsers() {
 
 // Função para criar um novo usuário com senha criptografada
 export async function createUser(name: string, email: string, password: string) {
-  const passwordHash = await hash(password, 10);
-
+  
   try {
     return await prisma.user.create({
-      data: { name, email, password: passwordHash },
+      data: { name, email, password},
     });
   } catch (error) {
     console.error('---- Detailed Prisma error:', error);
